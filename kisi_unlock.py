@@ -44,5 +44,6 @@ def main():
     api = KisiApi(args.email, password)
     api.unlock(args.lock)
 
+
 if __name__ == "__main__":
     main()

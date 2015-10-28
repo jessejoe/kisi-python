@@ -1,6 +1,8 @@
 # kisi-python
 Python client and scripts for talking to the KISI lock API
 
+**NOTE: Location verification must be disabled for the user using the API.**
+
 ## `kisi_unlock.py`
 `kisi_unlock.py` is a wrapper for `KisiApi` to have an all-in-one script to unlock a lock.
 

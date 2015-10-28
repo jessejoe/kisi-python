@@ -41,8 +41,7 @@ def main():
     # requests default INFO logs are noisy
     logging.getLogger("requests").setLevel(logging.WARNING)
 
-    api = KisiApi()
-    api.login(args.email, password)
+    api = KisiApi(args.email, password)
     api.unlock(args.lock)
 
 

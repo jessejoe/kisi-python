@@ -32,9 +32,9 @@ def main():
         password = getpass.getpass()
 
     if args.verbose:
-        loglevel = logging.DEBUG
-    else:
         loglevel = logging.INFO
+    else:
+        loglevel = logging.DEBUG
 
     logging.basicConfig(level=loglevel,
                         format='%(asctime)s %(name)s %(levelname)s %(message)s')
@@ -43,7 +43,6 @@ def main():
 
     api = KisiApi(args.email, password)
     api.unlock(args.lock)
-
 
 if __name__ == "__main__":
     main()

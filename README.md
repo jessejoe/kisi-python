@@ -1,6 +1,12 @@
 # kisi-python
 Python client and scripts for talking to the KISI lock API
 
+Based on Kisi's JS/Java examples:
+
+https://github.com/kisi-inc/client-js
+
+https://github.com/kisi-inc/client-java
+
 **NOTE: Location verification must be disabled for the user using the API.**
 
 ## `kisi_unlock.py`

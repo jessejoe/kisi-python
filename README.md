@@ -15,16 +15,15 @@ https://github.com/kisi-inc/client-java
 ### Example
 ```bash
 $ ./kisi_unlock.py -e foo@bar.com -p PASSWORD -l 'My Door'
-2015-10-28 12:48:43,121 root INFO Found lock: "My Door 2.0" (ID: 12345)
-2015-10-28 12:48:43,844 root INFO {u'message': u'Unlocked!'}
+2015-10-29 08:19:06,396 root INFO Found lock: "My Door 2.0" (ID: 12345)
+2015-10-29 08:19:06,396 root INFO Unlocking lock ID 12345
+2015-10-29 08:19:07,163 root INFO {u'message': u'Unlocked!'}
 ```
 
 If no password is provided, it will be prompted:
 ```bash
 $ ./kisi_unlock.py -e foo@bar.com -l 'My Door'
 Password:
-2015-10-28 12:48:43,121 root INFO Found lock: "My Door 2.0" (ID: 12345)
-2015-10-28 12:48:43,844 root INFO {u'message': u'Unlocked!'}
 ```
 
 ## `api.py`

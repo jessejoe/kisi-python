@@ -32,7 +32,7 @@ class KisiApi:
         auth_json = {'user': {'email': email, 'password': password}}
         resp = self.send_api('POST', 'users/sign_in', json=auth_json)
         self.auth_token = resp.json()['authentication_token']
-        logging.info('Got authentication token {}'.format(self.auth_token))
+        logging.debug('Got authentication token {}'.format(self.auth_token))
         return self.auth_token
 
     def logout(self):
@@ -62,10 +62,10 @@ class KisiApi:
         :return: JSON response from KISI API
         """
         lock_id = self.get_lock_id(lock_name)
-        logging.debug('Unlocking lock ID {}'.format(lock_id))
+        logging.info('Unlocking lock ID {}'.format(lock_id))
         resp = self.send_api('POST', '/locks/{}/access'.format(lock_id))
         result = resp.json()
-        logging.debug(result)
+        logging.info(result)
         return result
 
     def send_api(self, method, endpoint, **kwargs):
@@ -79,7 +79,7 @@ class KisiApi:
         url = urljoin(self.base_url, endpoint)
         req = requests.Request(method, url, headers=self.get_headers(),
                                **kwargs)
-        logging.info('Sending {} request to {}'.format(req.method, req.url))
+        logging.debug('Sending {} request to {}'.format(req.method, req.url))
         prepped = req.prepare()
         resp = self.session.send(prepped)
         resp.raise_for_status()

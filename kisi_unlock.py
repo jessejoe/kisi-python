@@ -32,9 +32,9 @@ def main():
         password = getpass.getpass()
 
     if args.verbose:
-        loglevel = logging.INFO
-    else:
         loglevel = logging.DEBUG
+    else:
+        loglevel = logging.INFO
 
     logging.basicConfig(level=loglevel,
                         format='%(asctime)s %(name)s %(levelname)s %(message)s')

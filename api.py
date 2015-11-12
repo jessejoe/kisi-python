@@ -20,8 +20,8 @@ class KisiApi:
         self.login(email, password)
 
     def __del__(self):
-        logging.debug('Logging out')
-        self.logout()
+        if not self.auth_token:
+            logging.debug('Logging out')
 
     def login(self, email, password):
         """
@@ -43,6 +43,7 @@ class KisiApi:
         """
         resp = self.send_api('DELETE', 'users/sign_out')
         resp.raise_for_status()
+        self.auth_token = ''
 
     def get_lock_id(self, lock_name):
         """ Get ID of the first lock that contains lock_name text """

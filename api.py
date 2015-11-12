@@ -49,7 +49,9 @@ class KisiApi:
         """ Get ID of the first lock that contains lock_name text """
         resp = self.send_api('GET', '/locks')
         locks = resp.json()
-        lock = next((lock for lock in locks if lock_name.lower() in lock['name'].lower()))
+        lock = next(
+            (lock for lock in locks if lock_name.lower() in lock['name'].lower()
+            ))
         real_lock_name = lock['name']
         lock_id = lock['id']
         logging.info('Found lock: "{}" (ID: {})'.format(real_lock_name,
@@ -78,7 +80,9 @@ class KisiApi:
         json={'key', 'value}
         """
         url = urljoin(self.base_url, endpoint)
-        req = requests.Request(method, url, headers=self.get_headers(),
+        req = requests.Request(method,
+                               url,
+                               headers=self.get_headers(),
                                **kwargs)
         logging.debug('Sending {} request to {}'.format(req.method, req.url))
         prepped = req.prepare()
